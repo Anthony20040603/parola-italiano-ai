@@ -110,7 +110,7 @@ assert.match(html, /id="ai-api-key"[^>]*type="password"/);
 assert.match(html, /id="dictionary-compatibility"/);
 assert.match(appSource, /function renderLibraryProgress\(\)/);
 assert.match(appSource, /function startMixedExtraSession\(\)/);
-assert.match(appSource, /var PROGRESS_VERSION = 5/);
+assert.match(appSource, /var PROGRESS_VERSION = 4/);
 assert.match(appSource, /function applyQuickRating\(rating\)/);
 assert.match(appSource, /lastResult = "manual-library"/);
 assert.match(appSource, /function rememberDictionarySet\(\)/);

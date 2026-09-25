@@ -16,7 +16,8 @@ require(["mdict-parser"], function (MParser) {
   var DICTIONARY_SET_KEY = "dictionary-set";
   var DICTIONARY_FILE_PREFIX = "dictionary:";
   var PROGRESS_FORMAT = "parola-progress";
-  var PROGRESS_VERSION = 5;
+  // AI preview keeps the stable v1.7 JSON envelope. Stable builds ignore aiCache.
+  var PROGRESS_VERSION = 4;
   var SHUFFLE_ALGORITHM = "mulberry32-fisher-yates-v1";
   var FSRS_ALGORITHM = "FSRS-6";
   var FSRS_LIBRARY_VERSION = "5.4.2";
