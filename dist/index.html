@@ -26,6 +26,7 @@
             <small>意大利语单词卡</small>
           </span>
         </a>
+        <span class="preview-badge">AI 例句测试版</span>
         <button id="change-dict" class="text-button" type="button" hidden>管理词库</button>
       </header>
 
@@ -156,6 +157,39 @@
                   <small id="reference-dictionary-count"></small>
                 </summary>
                 <div id="reference-dictionary-list" class="reference-dictionary-list"></div>
+              </details>
+              <details id="ai-assistant" class="ai-assistant" hidden>
+                <summary>
+                  <span>AI 例句与解析</span>
+                  <small id="ai-summary-status">按需生成 · 测试版</small>
+                </summary>
+                <div class="ai-assistant-body">
+                  <p class="ai-privacy-note">只有点击生成后，当前单词和当前词典释义才会发送到你填写的接口。API 密钥只保存在本次浏览器会话中，不会写入进度文件。</p>
+                  <details id="ai-settings" class="ai-settings">
+                    <summary>接口设置</summary>
+                    <div class="ai-settings-grid">
+                      <label>
+                        <span>完整接口地址</span>
+                        <input id="ai-endpoint" type="url" inputmode="url" placeholder="https://服务地址/v1/chat/completions" autocomplete="off" />
+                      </label>
+                      <label>
+                        <span>模型名称</span>
+                        <input id="ai-model" type="text" placeholder="请填写控制台显示的模型标识" autocomplete="off" />
+                      </label>
+                      <label>
+                        <span>API 密钥</span>
+                        <input id="ai-api-key" type="password" placeholder="仅保留到本次浏览器会话结束" autocomplete="off" />
+                      </label>
+                    </div>
+                    <button id="ai-save-settings" class="utility-button" type="button">保存本次会话配置</button>
+                  </details>
+                  <div class="ai-actions">
+                    <button id="ai-generate" class="primary-button compact-button" type="button">生成例句与解析</button>
+                    <button id="ai-clear-cache" class="text-button ai-clear-cache" type="button" hidden>清除此词缓存</button>
+                  </div>
+                  <p id="ai-status" class="inline-status ai-status" role="status" hidden></p>
+                  <div id="ai-result" class="ai-result" hidden></div>
+                </div>
               </details>
             </div>
           </article>

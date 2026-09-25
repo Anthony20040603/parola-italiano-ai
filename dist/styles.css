@@ -117,6 +117,18 @@ a:focus-visible {
   display: block;
 }
 
+.preview-badge {
+  margin-right: auto;
+  border: 1px solid rgba(198, 66, 54, 0.22);
+  border-radius: 999px;
+  padding: 5px 9px;
+  color: var(--red);
+  background: rgba(255, 247, 236, 0.82);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
 .brand strong {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 21px;
@@ -920,6 +932,185 @@ h1 {
   font-size: 14px;
   line-height: 1.7;
   white-space: pre-line;
+}
+
+.ai-assistant {
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.ai-assistant > summary,
+.ai-settings > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--navy);
+  cursor: pointer;
+  list-style: none;
+}
+
+.ai-assistant > summary::-webkit-details-marker,
+.ai-settings > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ai-assistant > summary::after,
+.ai-settings > summary::after {
+  content: "+";
+  margin-left: auto;
+  color: var(--red);
+  font-size: 19px;
+}
+
+.ai-assistant[open] > summary::after,
+.ai-settings[open] > summary::after {
+  content: "−";
+}
+
+.ai-assistant > summary span {
+  font-weight: 750;
+}
+
+.ai-assistant > summary small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.ai-assistant-body {
+  margin-top: 12px;
+  border: 1px solid rgba(16, 36, 63, 0.1);
+  border-radius: 15px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.ai-privacy-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.ai-settings {
+  margin-top: 12px;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: rgba(16, 36, 63, 0.045);
+}
+
+.ai-settings > summary {
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.ai-settings-grid {
+  display: grid;
+  gap: 9px;
+  margin: 12px 0 10px;
+}
+
+.ai-settings-grid label,
+.ai-settings-grid label span {
+  display: block;
+}
+
+.ai-settings-grid label span {
+  margin-bottom: 5px;
+  color: var(--navy-soft);
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.ai-settings-grid input {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0 11px;
+  color: var(--ink);
+  background: #fff;
+}
+
+.ai-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 13px;
+}
+
+.ai-clear-cache {
+  padding: 8px 0;
+  font-size: 11px;
+}
+
+.ai-status {
+  margin-top: 11px;
+}
+
+.ai-result {
+  display: grid;
+  gap: 10px;
+  margin-top: 13px;
+}
+
+.ai-result-heading {
+  display: grid;
+  gap: 3px;
+}
+
+.ai-result-heading strong {
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+}
+
+.ai-result-heading small,
+.ai-result-meta {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.ai-example {
+  border-left: 3px solid rgba(37, 113, 93, 0.35);
+  border-radius: 0 11px 11px 0;
+  padding: 11px 12px;
+  background: var(--green-soft);
+}
+
+.ai-example > strong {
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.ai-example p,
+.ai-pitfall,
+.ai-result-meta {
+  margin: 6px 0 0;
+  line-height: 1.55;
+}
+
+.ai-example-translation {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.ai-example-analysis,
+.ai-example-note {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.ai-pitfall {
+  border-radius: 10px;
+  padding: 9px 10px;
+  color: #855913;
+  background: #fff1c9;
+  font-size: 11px;
 }
 
 .dictionary-compatibility {

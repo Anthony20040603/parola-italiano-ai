@@ -105,10 +105,12 @@ assert.match(html, /id="review-more"/);
 assert.match(html, /id="dictionary-manager"/);
 assert.match(html, /id="dict-file"[^>]*multiple/);
 assert.match(html, /id="reference-dictionaries"/);
+assert.match(html, /id="ai-assistant"/);
+assert.match(html, /id="ai-api-key"[^>]*type="password"/);
 assert.match(html, /id="dictionary-compatibility"/);
 assert.match(appSource, /function renderLibraryProgress\(\)/);
 assert.match(appSource, /function startMixedExtraSession\(\)/);
-assert.match(appSource, /var PROGRESS_VERSION = 4/);
+assert.match(appSource, /var PROGRESS_VERSION = 5/);
 assert.match(appSource, /function applyQuickRating\(rating\)/);
 assert.match(appSource, /lastResult = "manual-library"/);
 assert.match(appSource, /function rememberDictionarySet\(\)/);
@@ -118,5 +120,22 @@ assert.match(appSource, /function showReferenceDictionaries\(\)/);
 assert.match(appSource, /function ensureDictionaryHash\(dictionary\)/);
 assert.match(appSource, /function analyzeChineseClue\(definition, word\)/);
 assert.match(appSource, /function scanLearningCompatibility\(dictionary\)/);
+assert.match(appSource, /sessionStorage\.setItem\(AI_API_KEY_SESSION_KEY/);
+assert.doesNotMatch(appSource, /localStorage\.setItem\(AI_API_KEY_SESSION_KEY/);
+
+const aiFunctions = appSource.match(
+  /  function sanitizeAiString[\s\S]*?(?=\n  function normalizeAiEndpoint)/,
+);
+assert.ok(aiFunctions, "AI response parser should be present");
+const aiContext = {};
+vm.runInNewContext(
+  `${aiFunctions[0]}
+  parsed = parseAiResponseText('JSON response: {"word":"forza","partOfSpeech":"s.f.","meaning":"力量","examples":[{"italian":"La forza nasce dalla costanza.","chinese":"力量来自坚持。","analysis":"主语 + 动词 + 介词短语。","note":"forza fisica"},{"italian":"Forza, andiamo!","chinese":"加油，我们走吧！","analysis":"感叹词用法。","note":"口语"}],"pitfall":"注意阴性名词。"}');
+  malicious = parseAiResponseText({"word":"x","examples":[{"italian":"<img src=x onerror=alert(1)>","chinese":"测试"}]});`,
+  aiContext,
+);
+assert.equal(aiContext.parsed.examples.length, 2);
+assert.equal(aiContext.parsed.examples[0].italian, "La forza nasce dalla costanza.");
+assert.equal(aiContext.malicious.examples[0].italian, "<img src=x onerror=alert(1)>");
 
 console.log("Parola smoke tests passed.");
