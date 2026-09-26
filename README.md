@@ -2,7 +2,7 @@
 
 一个适合手机使用的意大利语单词卡网页。它在浏览器本地读取 MDict `.mdx` 词库，使用系统语音朗读意大利语，并用 FSRS-6 安排复习。
 
-当前分支版本：`1.7.0-ai-preview.1`（仅本地测试）。线上稳定版本仍为 `v1.7.0`，详细记录见 [CHANGELOG.md](CHANGELOG.md)。
+当前分支版本：`1.7.0-ai-preview.1`。AI 测试版发布于 <https://anthony20040603.github.io/parola-italiano-ai/>；线上稳定版仍为 <https://anthony20040603.github.io/parola-italiano/>，详细记录见 [CHANGELOG.md](CHANGELOG.md)。
 
 ## 当前功能
 
@@ -58,7 +58,7 @@
 
 ## AI 例句测试版
 
-当前 `preview/ai-examples-v1.7` 分支是仅本地测试版本，不会发布到 GitHub Pages。答题后展开“AI 例句与解析”，填写澎湃算力控制台提供的完整 Chat Completions 接口地址、模型标识和 API 密钥即可测试。
+AI 测试版单独保存在 `Anthony20040603/parola-italiano-ai` 仓库，与稳定版使用不同的 GitHub Pages 网址。答题后展开“AI 例句与解析”，填写澎湃算力控制台提供的完整 Chat Completions 接口地址、模型标识和 API 密钥即可测试。
 
 - 接口地址与模型名保存在当前浏览器；API 密钥只保存在当前浏览器会话。
 - 只有主动点击“生成”时，当前单词和当前学习词典的释义才会发送到所填接口。
